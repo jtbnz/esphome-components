@@ -275,8 +275,8 @@ void ILI9341TFT24::initialize() {
 //   35_TFT display
 void ILI9481TFT35::initialize() {
   this->init_lcd_(INITCMD_TFT_ILI9481);
-  this->width_ = 240;
-  this->height_ = 400;
+  this->width_ = 320;
+  this->height_ = 240;
   this->fill_internal_(Color::BLACK);
 }
 
