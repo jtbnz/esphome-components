@@ -14,6 +14,9 @@ static const uint8_t MADCTL_BGR   = 0x08;  ///< Bit 3 Blue-Green-Red pixel order
 static const uint8_t MADCTL_MH    = 0x04;   ///< Bit 2 LCD refresh right to left
 // clang-format on
 
+//static const uint16_t ILI9481_TFTWIDTH = 320;   ///< ILI9481 max TFT width
+//static const uint16_t ILI9481_TFTHEIGHT = 240;  ///< ILI9481 max TFT height
+
 // All ILI9481 specific commands some are used by init()
 static const uint8_t ILI9481_NOP = 0x00;
 static const uint8_t ILI9481_SWRESET = 0x01;
