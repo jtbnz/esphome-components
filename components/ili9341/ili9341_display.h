@@ -64,13 +64,7 @@ class ILI9341Display : public PollingComponent,
   uint16_t x_high_{0};
   uint16_t y_high_{0};
                                                
-  ILI9481Model model_;
-  int16_t width_{320};   ///< Display width as modified by current rotation
-  int16_t height_{240};  ///< Display height as modified by current rotation
-  uint16_t x_low_{0};
-  uint16_t y_low_{0};
-  uint16_t x_high_{0};
-  uint16_t y_high_{0};                                              
+                                            
                                                
 
   uint32_t get_buffer_length_();
