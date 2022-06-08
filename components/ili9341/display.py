@@ -21,7 +21,7 @@ ili9341 = ili9341_ns.class_(
 )
 ILI9341M5Stack = ili9341_ns.class_("ILI9341M5Stack", ili9341)
 ILI9341TFT24 = ili9341_ns.class_("ILI9341TFT24", ili9341)
-ILI9481TFT35 = ili9341_ns.class_("ILI9481TFT235", ili9341)
+ILI9481TFT35 = ili9341_ns.class_("ILI9481TFT35", ili9341)
 
 ILI9341Model = ili9341_ns.enum("ILI9341Model")
 
