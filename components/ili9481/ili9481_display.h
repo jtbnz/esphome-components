@@ -3,24 +3,24 @@
 #include "esphome/core/component.h"
 #include "esphome/components/spi/spi.h"
 #include "esphome/components/display/display_buffer.h"
-#include "ili9341_defines.h"
-#include "ili9341_init.h"
+#include "ili9481_defines.h"
+#include "ili9481_init.h"
 
 namespace esphome {
-namespace ili9341 {
+namespace ili9481 {
 
-enum ILI9341Model {
+enum ILI9481Model {
   M5STACK = 0,
   TFT_24,
-  ILI9481,
+  ILI9488,
 };
 
-enum ILI9341ColorMode {
+enum ILI9481ColorMode {
   BITS_8,
   BITS_8_INDEXED,
 };
 
-class ILI9341Display : public PollingComponent,
+class ILI9481Display : public PollingComponent,
                        public display::DisplayBuffer,
                        public spi::SPIDevice<spi::BIT_ORDER_MSB_FIRST, spi::CLOCK_POLARITY_LOW,
                                              spi::CLOCK_PHASE_LEADING, spi::DATA_RATE_40MHZ> {
@@ -29,9 +29,9 @@ class ILI9341Display : public PollingComponent,
   float get_setup_priority() const override;
   void set_reset_pin(GPIOPin *reset) { this->reset_pin_ = reset; }
   void set_led_pin(GPIOPin *led) { this->led_pin_ = led; }
-  void set_model(ILI9341Model model) { this->model_ = model; }
+  void set_model(ILI9481Model model) { this->model_ = model; }
   void set_palette(const uint8_t *palette) { this->palette_ = palette; }
-  void set_buffer_color_mode(ILI9341ColorMode color_mode) { this->buffer_color_mode_ = color_mode; }
+  void set_buffer_color_mode(ILI9481ColorMode color_mode) { this->buffer_color_mode_ = color_mode; }
 
   void command(uint8_t value);
   void data(uint8_t value);
@@ -49,8 +49,6 @@ class ILI9341Display : public PollingComponent,
     this->initialize();
   }
 
-  display::DisplayType get_display_type() override { return display::DisplayType::DISPLAY_TYPE_COLOR; }
-
  protected:
   void draw_absolute_pixel_internal(int x, int y, Color color) override;
   void setup_pins_();
@@ -62,7 +60,7 @@ class ILI9341Display : public PollingComponent,
   void fill_internal_(Color color);
   void display_();
 
-  ILI9341Model model_;
+  ILI9481Model model_;
   int16_t width_{320};   ///< Display width as modified by current rotation
   int16_t height_{240};  ///< Display height as modified by current rotation
   uint16_t x_low_{0};
@@ -71,7 +69,7 @@ class ILI9341Display : public PollingComponent,
   uint16_t y_high_{0};
   const uint8_t *palette_;
 
-  ILI9341ColorMode buffer_color_mode_{BITS_8};
+  ILI9481ColorMode buffer_color_mode_{BITS_8};
 
   uint32_t get_buffer_length_();
   int get_width_internal() override;
@@ -93,22 +91,21 @@ class ILI9341Display : public PollingComponent,
 };
 
 //-----------   M5Stack display --------------
-class ILI9341M5Stack : public ILI9341Display {
+class ILI9481M5Stack : public ILI9481Display {
  public:
   void initialize() override;
 };
 
-//-----------   ILI9341_24_TFT display --------------
-class ILI9341TFT24 : public ILI9341Display {
+//-----------   ILI9481_24_TFT display --------------
+class ILI9481TFT24 : public ILI9481Display {
  public:
   void initialize() override;
 };
 
-//-----------   ILI9481_35_TFT display --------------
-class ILI9481TFT35 : public ILI9341Display {
+class ILI9488TFT35 : public ILI9481Display {
  public:
   void initialize() override;
 };
 
-}  // namespace ili9341
+}  // namespace ili9481
 }  // namespace esphome
