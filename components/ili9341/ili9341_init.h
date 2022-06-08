@@ -64,8 +64,7 @@ static const uint8_t PROGMEM INITCMD_TFT[] = {
   ILI9341_DISPON  , 0x80,                // Display on
   0x00                                   // End of list
 };
-
-static const uint8_t PROGMEM INITCMD_TFT_ILI9488[] = {
+static const uint8_t PROGMEM INITCMD_TFT_ILI9481[] = {
   0xEF, 3, 0x03, 0x80, 0x02,
   0xCF, 3, 0x00, 0xC1, 0x30,
   0xED, 4, 0x64, 0x03, 0x12, 0x81,
@@ -81,7 +80,7 @@ static const uint8_t PROGMEM INITCMD_TFT_ILI9488[] = {
   ILI9341_VSCRSADD, 1, 0x00,             // Vertical scroll zero
   ILI9341_PIXFMT  , 1, 0x55,
   ILI9341_FRMCTR1 , 2, 0x00, 0x18,
-  ILI9341_DFUNCTR , 3, 0x02, 0x02, 0x3B, // Display Function Control
+  ILI9341_DFUNCTR , 3, 0x08, 0x82, 0x27, // Display Function Control
   0xF2, 1, 0x00,                         // 3Gamma Function Disable
   ILI9341_GAMMASET , 1, 0x01,             // Gamma curve selected
   ILI9341_GMCTRP1 , 15, 0x0F, 0x31, 0x2B, 0x0C, 0x0E, 0x08, // Set Gamma
