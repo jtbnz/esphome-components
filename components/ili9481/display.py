@@ -86,12 +86,12 @@ async def to_code(config):
         led_pin = await cg.gpio_pin_expression(config[CONF_LED_PIN])
         cg.add(var.set_led_pin(led_pin))
 
-    if config[CONF_COLOR_PALETTE] == "GRAYSCALE":
-        cg.add(var.set_buffer_color_mode(ILI9481ColorMode.BITS_8_INDEXED))
-        rhs = []
-        for x in range(256):
-            rhs.extend([HexInt(x), HexInt(x), HexInt(x)])
-        prog_arr = cg.progmem_array(config[CONF_RAW_DATA_ID], rhs)
-        cg.add(var.set_palette(prog_arr))
+#    if config[CONF_COLOR_PALETTE] == "GRAYSCALE":
+#        cg.add(var.set_buffer_color_mode(ILI9481ColorMode.BITS_8_INDEXED))
+#        rhs = []
+#        for x in range(256):
+#            rhs.extend([HexInt(x), HexInt(x), HexInt(x)])
+#        prog_arr = cg.progmem_array(config[CONF_RAW_DATA_ID], rhs)
+#        cg.add(var.set_palette(prog_arr))
     else:
         pass
