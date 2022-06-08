@@ -3,7 +3,7 @@ import esphome.config_validation as cv
 from esphome import pins
 from esphome.components import display, spi
 from esphome.const import (
-    CONF_COLOR_PALETTE,
+    #CONF_COLOR_PALETTE,
     CONF_DC_PIN,
     CONF_ID,
     CONF_LAMBDA,
