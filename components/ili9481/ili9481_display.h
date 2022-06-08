@@ -95,7 +95,7 @@ class ILI9481TFT24 : public ILI9481Display {
 };
 
 //-----------   ILI9481_24_TFT display --------------
-class ILI9481TFT24 : public ILI9481Display {
+class ILI9481TFT35 : public ILI9481Display {
  public:
   void initialize() override;
 };
